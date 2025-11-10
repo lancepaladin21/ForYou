@@ -1,23 +1,39 @@
-import logo from './logo.svg';
+import {Link} from 'react-router-dom';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div className="title">
+      <h1>For My Beloved</h1>
+
+      <div className="TableOptions">
+        <table border="5">
+          <thead>
+            <tr>
+              <th>Letters</th>
+              <th>Pictures</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <Link to="/letter" className="coraline-image"></Link>
+              </td>
+              <td>
+                <Link to="/pictures" className="wybie-image"></Link>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div className="note-box">
+        <h2>Note</h2>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Even in the other world Id still find you glowing brighter than any
+          button eyed dream
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </div>
     </div>
   );
 }

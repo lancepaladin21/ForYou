@@ -1,38 +1,272 @@
-.App {
+@font-face {
+  font-family: 'Coraline';
+  src: url('./fonts/Coralineaz-DGw3.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body,
+html,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: url('./images/wallpaper.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #e6faff;
+}
+
+.title {
+  text-align: center;
+  padding-top: 80px;
+  text-shadow: 0 0 15px rgba(77, 184, 255, 0.7);
+}
+
+.title h1 {
+  font-size: 50px;
+  color: #4db8ff;
+  margin-bottom: 40px;
+}
+
+.TableOptions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+table {
+  border-collapse: collapse;
+  box-shadow: 0 0 25px rgb(102, 182, 236);
+  border-color: rgba(77, 184, 255, 0.7);
+  border-radius: 10px;
+  width: 600px;
+  height: 500px;
+}
+
+th {
+  font-family: 'Coraline', cursive;
+  font-size: 24px;
+  padding: 15px 40px;
+  color: #4db8ff;
+  text-shadow: 0 0 10px rgba(77, 184, 255, 0.7);
+}
+
+td {
+  width: 200px;
+  height: 200px;
+}
+
+.coraline-image,
+.wybie-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.coraline-image {
+  background-image: url('./images/Coraline.png');
+  /* put your Coraline image here */
+}
+
+.wybie-image {
+  background-image: url('./images/Wybie.png');
+  /* put your Wybie image here */
+}
+
+.coraline-image:hover{
+  background-image: url('./images/CoralineHover.png');
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(77, 184, 255, 0.7);
+}
+.wybie-image:hover {
+  background-image: url('./images/WybieHover.png');
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(77, 184, 255, 0.7);
+}
+
+.note-box {
+  font-family: 'Coraline', cursive;
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.55);
+  border: 2px solid #4db8ff;
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 0 25px rgba(77, 184, 255, 0.5);
+  backdrop-filter: blur(6px);
+  animation: pulse-glow 3s infinite ease-in-out;
+}
+
+.note-box h2 {
+  color: #4db8ff;
+  text-shadow: 0 0 12px rgba(77, 184, 255, 0.7);
+}
+
+.note-box p {
+  font-size: 20px;
+  color: #e6faff;
+  margin-top: 10px;
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 20px rgba(77, 184, 255, 0.3),
+      inset 0 0 10px rgba(77, 184, 255, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(77, 184, 255, 0.6),
+      inset 0 0 20px rgba(77, 184, 255, 0.3);
+  }
+
+  100% {
+    box-shadow: 0 0 20px rgba(77, 184, 255, 0.3),
+      inset 0 0 10px rgba(77, 184, 255, 0.2);
+  }
+}
+
+.pictures-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.pictures-container {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.triangle-gallery {
+  position: relative;
+  width: 400px;
+  height: 350px;
+  margin: 40px auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.picture-item {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.picture-item:hover {
+  transform: scale(1.05);
+}
+
+/* Triangle positioning */
+.picture-item.top {
+  transform: translateX(-50%);
+  top: 0;
+  left: 50%;
+  box-shadow: rgb(102, 182, 236) 0px 0px 25px;
+  border: 5px solid rgb(102, 182, 236);
+}
+
+.picture-item.bottom-left {
+  bottom: 0;
+  left: 0;
+  box-shadow: rgb(102, 182, 236) 0px 0px 25px;
+  border: 5px solid rgb(102, 182, 236);
+}
+
+.picture-item.bottom-right {
+  bottom: 0;
+  right: 0;
+  box-shadow: rgb(102, 182, 236) 0px 0px 25px;
+  border: 5px solid rgb(102, 182, 236);
+}
+
+.back-btn {
+  display: inline-block;
+  margin-top: 30px;
+  text-decoration: none;
+  font-size: 1.2em;
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: rgba(77, 184, 255, 0.7);
+  transition: background 0.3s ease;
+}
+
+.back-btn:hover {
+  background: rgba(77, 184, 255, 0.6);
+}
+
+.letter-page {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Coraline', cursive;
+  color: #e6faff;
+  text-shadow: 0 0 10px rgba(77, 184, 255, 0.3);
 }
 
-.App-link {
-  color: #61dafb;
+.letter-container h1 {
+  text-align: center;
+  color: #4db8ff;
+  text-shadow: 0 0 15px rgba(77, 184, 255, 0.7);
+  font-size: 2.2em;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.letter-container {
+  background: rgba(0, 0, 0, 0.55);
+  /* semi-transparent for contrast */
+  border: 2px solid rgb(102, 182, 236);
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(77, 184, 255, 0.5);
+  backdrop-filter: blur(10px);
+  /* 🔥 adds frosted-glass blur */
+  -webkit-backdrop-filter: blur(10px);
+  /* Safari support */
+  width: 85%;
+  max-width: 700px;
+  padding: 40px 50px;
+  color: #e6faff;
+  line-height: 1.8;
+  text-align: left;
+  /* use your custom font */
+  animation: pulse-glow 3s infinite ease-in-out;
+  /* optional glowing effect */
+}
+
+.letter-content p {
+  margin-bottom: 15px;
+  font-size: 1.05em;
+}
+
+.signature {
+  text-align: right;
+  font-style: italic;
+  color: rgba(77, 184, 255, 0.5);
+  margin-top: 35px;
+}
+
+.back-btn {
+  display: block;
+  width: fit-content;
+  margin: 40px auto 0;
+  text-decoration: none;
+  color: #333;
+  background-color: rgba(77, 184, 255, 0.7);
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 10px 25px;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.back-btn:hover {
+  background-color: rgba(77, 184, 255, 0.6);
+  transform: translateY(-2px);
 }
